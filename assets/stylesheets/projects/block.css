@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+html, body {
+  background-color: #232526;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Patrick Hand', cursive;
+  margin: 0;
+  padding: 0;
+  border: 5px solid rgba(255, 255, 255, 0.05);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+html:active, body:active {
+  -webkit-transition: 0s;
+  transition: 0s;
+  border: 5px solid rgba(255, 255, 255, 0.1);
+}
+
+.infos {
+  position: absolute;
+  left: 65px;
+  top: 150px;
+}
+
+.infos h1 {
+  text-transform: uppercase;
+  font-size: 45px;
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: 2px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.infos h3 {
+  font-weight: 500;
+  color: #ff5353;
+}
+
+.infos button.start {
+  padding: 5px 15px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  font-family: 'Patrick Hand', cursive;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  font-size: 20px;
+  -webkit-transition: .5s;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.infos button.start:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.blocks {
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.blocks .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.blocks .row .inputStatus {
+  margin-top: 10px;
+}
+
+.blocks .row .inputStatus.correct .circle {
+  background-color: #5980c1;
+}
+
+.blocks .row .inputStatus.wrong .circle {
+  background-color: #ff5353;
+}
+
+.blocks .row .inputStatus .circle {
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  display: inline-block;
+  border-radius: 50%;
+  opacity: .3;
+  margin: 5px;
+}
+
+.blocks .row .inputStatus .circle.correct {
+  opacity: 1;
+}
+
+.blocks .row .block {
+  width: 100px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #fff;
+  cursor: pointer;
+  -webkit-transition: 0.5s 0.1s;
+  transition: 0.5s 0.1s;
+  margin: 12px;
+}
+
+.blocks .row .block:active, .blocks .row .block.active {
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+
+.blocks .row .block.block1 {
+  -webkit-box-shadow: 0px 0px 35px rgba(255, 83, 83, 0.1);
+          box-shadow: 0px 0px 35px rgba(255, 83, 83, 0.1);
+  border: 1px solid #ff6d6d;
+}
+
+.blocks .row .block.block1:hover {
+  background-color: rgba(255, 83, 83, 0.3);
+  -webkit-box-shadow: 0px 0px 35px rgba(255, 83, 83, 0.3);
+          box-shadow: 0px 0px 35px rgba(255, 83, 83, 0.3);
+}
+
+.blocks .row .block.block1:active, .blocks .row .block.block1.active {
+  -webkit-box-shadow: 0px 0px 35px #ff5353;
+          box-shadow: 0px 0px 35px #ff5353;
+  background-color: #ff5353;
+}
+
+.blocks .row .block.block2 {
+  -webkit-box-shadow: 0px 0px 35px rgba(255, 196, 41, 0.1);
+          box-shadow: 0px 0px 35px rgba(255, 196, 41, 0.1);
+  border: 1px solid #ffcb43;
+}
+
+.blocks .row .block.block2:hover {
+  background-color: rgba(255, 196, 41, 0.3);
+  -webkit-box-shadow: 0px 0px 35px rgba(255, 196, 41, 0.3);
+          box-shadow: 0px 0px 35px rgba(255, 196, 41, 0.3);
+}
+
+.blocks .row .block.block2:active, .blocks .row .block.block2.active {
+  -webkit-box-shadow: 0px 0px 35px #ffc429;
+          box-shadow: 0px 0px 35px #ffc429;
+  background-color: #ffc429;
+}
+
+.blocks .row .block.block3 {
+  -webkit-box-shadow: 0px 0px 35px rgba(89, 128, 193, 0.1);
+          box-shadow: 0px 0px 35px rgba(89, 128, 193, 0.1);
+  border: 1px solid #6c8ec8;
+}
+
+.blocks .row .block.block3:hover {
+  background-color: rgba(89, 128, 193, 0.3);
+  -webkit-box-shadow: 0px 0px 35px rgba(89, 128, 193, 0.3);
+          box-shadow: 0px 0px 35px rgba(89, 128, 193, 0.3);
+}
+
+.blocks .row .block.block3:active, .blocks .row .block.block3.active {
+  -webkit-box-shadow: 0px 0px 35px #5980c1;
+          box-shadow: 0px 0px 35px #5980c1;
+  background-color: #5980c1;
+}
+
+.blocks .row .block.block4 {
+  -webkit-box-shadow: 0px 0px 35px rgba(32, 117, 15, 0.1);
+          box-shadow: 0px 0px 35px rgba(32, 117, 15, 0.1);
+  border: 1px solid #268c12;
+}
+
+.blocks .row .block.block4:hover {
+  background-color: rgba(32, 117, 15, 0.3);
+  -webkit-box-shadow: 0px 0px 35px rgba(32, 117, 15, 0.3);
+          box-shadow: 0px 0px 35px rgba(32, 117, 15, 0.3);
+}
+
+.blocks .row .block.block4:active, .blocks .row .block.block4.active {
+  -webkit-box-shadow: 0px 0px 35px #20750f;
+          box-shadow: 0px 0px 35px #20750f;
+  background-color: #20750f;
+}
+
+.blocks .row .block.block5 {
+  -webkit-box-shadow: 0px 0px 35px rgba(135, 135, 135, 0.1);
+          box-shadow: 0px 0px 35px rgba(135, 135, 135, 0.1);
+  border: 1px solid #949494;
+}
+
+.blocks .row .block.block5:hover {
+  background-color: rgba(135, 135, 135, 0.3);
+  -webkit-box-shadow: 0px 0px 35px rgba(135, 135, 135, 0.3);
+          box-shadow: 0px 0px 35px rgba(135, 135, 135, 0.3);
+}
+
+.blocks .row .block.block5:active, .blocks .row .block.block5.active {
+  -webkit-box-shadow: 0px 0px 35px #878787;
+          box-shadow: 0px 0px 35px #878787;
+  background-color: #878787;
+}
+
+.blocks .row .block.block6 {
+  -webkit-box-shadow: 0px 0px 35px rgba(251, 233, 183, 0.1);
+          box-shadow: 0px 0px 35px rgba(251, 233, 183, 0.1);
+  border: 1px solid #fcf0cf;
+}
+
+.blocks .row .block.block6:hover {
+  background-color: rgba(251, 233, 183, 0.3);
+  -webkit-box-shadow: 0px 0px 35px rgba(251, 233, 183, 0.3);
+          box-shadow: 0px 0px 35px rgba(251, 233, 183, 0.3);
+}
+
+.blocks .row .block.block6:active, .blocks .row .block.block6.active {
+  -webkit-box-shadow: 0px 0px 35px #fbe9b7;
+          box-shadow: 0px 0px 35px #fbe9b7;
+  background-color: #fbe9b7;
+}
+
+.blocks .row .block.block7 {
+  -webkit-box-shadow: 0px 0px 35px rgba(0, 242, 255, 0.1);
+          box-shadow: 0px 0px 35px rgba(0, 242, 255, 0.1);
+  border: 1px solid #1af3ff;
+}
+
+.blocks .row .block.block7:hover {
+  background-color: rgba(0, 242, 255, 0.3);
+  -webkit-box-shadow: 0px 0px 35px rgba(0, 242, 255, 0.3);
+          box-shadow: 0px 0px 35px rgba(0, 242, 255, 0.3);
+}
+
+.blocks .row .block.block7:active, .blocks .row .block.block7.active {
+  -webkit-box-shadow: 0px 0px 35px #00f2ff;
+          box-shadow: 0px 0px 35px #00f2ff;
+  background-color: #00f2ff;
+}
+
+.blocks .row .block.block8 {
+  -webkit-box-shadow: 0px 0px 35px rgba(255, 125, 89, 0.1);
+          box-shadow: 0px 0px 35px rgba(255, 125, 89, 0.1);
+  border: 1px solid #ff9173;
+}
+
+.blocks .row .block.block8:hover {
+  background-color: rgba(255, 125, 89, 0.3);
+  -webkit-box-shadow: 0px 0px 35px rgba(255, 125, 89, 0.3);
+          box-shadow: 0px 0px 35px rgba(255, 125, 89, 0.3);
+}
+
+.blocks .row .block.block8:active, .blocks .row .block.block8.active {
+  -webkit-box-shadow: 0px 0px 35px #ff7d59;
+          box-shadow: 0px 0px 35px #ff7d59;
+  background-color: #ff7d59;
+}
+
+.blocks .row .block.block9 {
+  -webkit-box-shadow: 0px 0px 35px rgba(0, 255, 59, 0.1);
+          box-shadow: 0px 0px 35px rgba(0, 255, 59, 0.1);
+  border: 1px solid #1aff4f;
+}
+
+.blocks .row .block.block9:hover {
+  background-color: rgba(0, 255, 59, 0.3);
+  -webkit-box-shadow: 0px 0px 35px rgba(0, 255, 59, 0.3);
+          box-shadow: 0px 0px 35px rgba(0, 255, 59, 0.3);
+}
+
+.blocks .row .block.block9:active, .blocks .row .block.block9.active {
+  -webkit-box-shadow: 0px 0px 35px #00ff3b;
+          box-shadow: 0px 0px 35px #00ff3b;
+  background-color: #00ff3b;
+}
+
+.inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+}
+
+.inputs .inputStatus {
+  margin-top: 10px;
+}
+
+.inputs .inputStatus.correct .circle {
+  background-color: #5980c1;
+}
+
+.inputs .inputStatus.wrong .circle {
+  background-color: #ff5353;
+}
+
+.inputs .inputStatus .circle {
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  display: inline-block;
+  border-radius: 50%;
+  opacity: .3;
+  margin: 5px;
+}
+
+.inputs .inputStatus .circle.correct {
+  opacity: 1;
+}
+/*# sourceMappingURL=block.css.map */

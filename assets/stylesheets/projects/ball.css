@@ -1,0 +1,83 @@
+html, body {
+  background-color: #222;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.game {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  border: 5px solid #fff;
+}
+
+.game .board {
+  background-color: #ffab2d;
+}
+
+.game .ball {
+  background-color: red;
+  border-radius: 50%;
+}
+
+.game .info {
+  color: #fff;
+  background-color: #222;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.game .info .infoText {
+  text-align: center;
+}
+
+.game .info .start {
+  padding: 8px 15px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 15px;
+  -webkit-transition: .5s;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.game .info .start:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.game .grade {
+  margin: 5px 5px;
+}
+/*# sourceMappingURL=ball.css.map */

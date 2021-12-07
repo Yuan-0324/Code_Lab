@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap");
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+}
+
+* {
+  font-family: 'Gluten', cursive;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.infos h1 {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-size: 15px;
+  opacity: .5;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.infos h3 {
+  text-align: center;
+  color: #fff;
+  opacity: .5;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0;
+}
+
+.infos h3 span {
+  color: #ff5151;
+}
+
+.timer {
+  width: 400px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), inset -5px -5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), inset -5px -5px rgba(0, 0, 0, 0.5);
+}
+
+.timer.red {
+  -webkit-animation: alert .5s infinite alternate;
+          animation: alert .5s infinite alternate;
+}
+
+.timer [class^="digit"] {
+  width: 100px;
+  height: 120px;
+  background-color: #222;
+  margin: 0px 5px;
+  border-radius: 10px;
+  -webkit-box-shadow: inset -5px -5px rgba(255, 255, 255, 0.5);
+          box-shadow: inset -5px -5px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.timer [class^="digit"].jump {
+  -webkit-animation: jump 0.5s infinite alternate;
+          animation: jump 0.5s infinite alternate;
+}
+
+.timer [class^="digit"].preventClick {
+  pointer-events: none;
+}
+
+.timer [class^="digit"].digit1 h1.alert {
+  -webkit-animation-delay: -0.1s;
+          animation-delay: -0.1s;
+}
+
+.timer [class^="digit"].digit2 h1.alert {
+  -webkit-animation-delay: -0.2s;
+          animation-delay: -0.2s;
+}
+
+.timer [class^="digit"].digit3 h1.alert {
+  -webkit-animation-delay: -0.3s;
+          animation-delay: -0.3s;
+}
+
+.timer [class^="digit"] h1 {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #fff;
+  text-align: center;
+  font-size: 80px;
+  line-height: 130px;
+  margin: 0;
+  padding: 0;
+}
+
+.timer [class^="digit"] h1.alert {
+  -webkit-animation: wordsAlert 1s infinite alternate;
+          animation: wordsAlert 1s infinite alternate;
+}
+
+.btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.start, .clear, .pause {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: red;
+  padding: 5px 20px;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 5px;
+  margin: 20px 20px;
+  -webkit-transition: .5s;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.start.preventClick, .preventClick.clear, .preventClick.pause {
+  pointer-events: none;
+}
+
+.start:hover, .clear:hover, .pause:hover {
+  background-color: #cc0000;
+}
+
+.pause {
+  margin-top: 20px;
+}
+
+.pause.preventClick {
+  pointer-events: none;
+}
+
+@-webkit-keyframes jump {
+  20% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+}
+
+@keyframes jump {
+  20% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+}
+
+@-webkit-keyframes alert {
+  0% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: #ff5121;
+  }
+}
+
+@keyframes alert {
+  0% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: #ff5121;
+  }
+}
+
+@-webkit-keyframes wordsAlert {
+  0% {
+    color: #0C4475;
+  }
+  50% {
+    color: #ff5151;
+  }
+  100% {
+    color: #fff;
+  }
+}
+
+@keyframes wordsAlert {
+  0% {
+    color: #0C4475;
+  }
+  50% {
+    color: #ff5151;
+  }
+  100% {
+    color: #fff;
+  }
+}
+/*# sourceMappingURL=timer.css.map */

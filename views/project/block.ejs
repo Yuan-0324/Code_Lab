@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../shared/head %>
+        <link rel="stylesheet" href="../../assets/stylesheets/projects/block.css">
+</head>
+
+<body>
+    <% include ../shared/back-to-lab %>
+        <div class="infos">
+            <h1>Memory<br>Blocks</h1>
+            <h3 class="status">-</h3>
+            <button class="start" onclick="game.startLevel()">START</button>
+        </div>
+        <div class="blocks">
+            <div class="row">
+                <div class="block block1" onclick="game.userSendInput('1')"> </div>
+                <div class="block block2" onclick="game.userSendInput('2')"></div>
+                <div class="block block3" onclick="game.userSendInput('3')"> </div>
+            </div>
+            <div class="row">
+                <div class="block block4" onclick="game.userSendInput('4')"></div>
+                <div class="block block5" onclick="game.userSendInput('5')"> </div>
+                <div class="block block6" onclick="game.userSendInput('6')"> </div>
+            </div>
+            <div class="row">
+                <div class="block block7" onclick="game.userSendInput('7')"> </div>
+                <div class="block block8" onclick="game.userSendInput('8')"></div>
+                <div class="block block9" onclick="game.userSendInput('9')"> </div>
+            </div>
+        </div>
+        <div class="inputs">
+            <div class="inputStatus"></div>
+        </div>
+        <% include ../shared/script %>
+            <script src="../../assets/javascripts/projects/block.js"></script>
+</body>
+
+</html>

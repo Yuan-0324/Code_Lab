@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../shared/head %>
+        <link rel="stylesheet" href="../../assets/stylesheets/projects/ball.css">
+</head>
+
+<body>
+    <% include ../shared/back-to-lab %>
+        <div class="game">
+            <div class="board b1"></div>
+            <div class="board b2"></div>
+            <div class="ball"></div>
+            <div class="info">
+                <h2 class="infoText">Start Game</h2>
+                <button class="start" onclick="game.startGame()">START</button>
+            </div>
+            <div class="grade"> </div>
+        </div>
+        <% include ../shared/script %>
+            <script src="../../assets/javascripts/projects/ball.js"></script>
+</body>
+
+</html>

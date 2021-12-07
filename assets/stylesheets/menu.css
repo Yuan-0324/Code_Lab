@@ -1,0 +1,203 @@
+body {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+nav .navText span:nth-child(2) {
+  color: #F75C2F;
+  pointer-events: none;
+}
+
+.changeGate#leftGate {
+  left: -62%;
+}
+
+.changeGate#rightGate {
+  right: -62%;
+}
+
+section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: #fff;
+}
+
+section .openGate {
+  position: absolute;
+  z-index: 1000;
+  height: 50vh;
+  width: 100%;
+  background-color: #000;
+  -webkit-transition: all .7s ease;
+  transition: all .7s ease;
+}
+
+section .openGate#upperG {
+  top: 0vh;
+}
+
+section .openGate#downG {
+  bottom: 0vh;
+}
+
+section .menuContainer {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-image: url("../images/milky-way-74005.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+section .menuContainer .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  padding: 0;
+}
+
+section .menuContainer .container .labCollection {
+  width: 100%;
+  height: 100vh;
+  padding: 10% 0;
+}
+
+section .menuContainer .container .labCollection .labCard {
+  height: 50%;
+  padding: 15px;
+  position: relative;
+  top: 0;
+  -webkit-animation: cardFloat 2s linear alternate infinite;
+          animation: cardFloat 2s linear alternate infinite;
+}
+
+section .menuContainer .container .labCollection .labCard:nth-child(1) {
+  -webkit-animation-delay: -0.8s;
+          animation-delay: -0.8s;
+}
+
+section .menuContainer .container .labCollection .labCard:nth-child(2) {
+  -webkit-animation-delay: -1.6s;
+          animation-delay: -1.6s;
+}
+
+section .menuContainer .container .labCollection .labCard:nth-child(3) {
+  -webkit-animation-delay: -2.4s;
+          animation-delay: -2.4s;
+}
+
+section .menuContainer .container .labCollection .labCard:nth-child(4) {
+  -webkit-animation-delay: -3.2s;
+          animation-delay: -3.2s;
+}
+
+section .menuContainer .container .labCollection .labCard:nth-child(5) {
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+}
+
+section .menuContainer .container .labCollection .labCard:nth-child(6) {
+  -webkit-animation-delay: -4.8s;
+          animation-delay: -4.8s;
+}
+
+section .menuContainer .container .labCollection .labCard .cardText {
+  position: relative;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid #F75C2F;
+  -webkit-box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.7);
+          box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+section .menuContainer .container .labCollection .labCard .cardText .deco {
+  position: absolute;
+  background-color: #000;
+  background-origin: padding-box;
+  border-radius: 0 100% 0 0;
+  width: 100%;
+  height: 31%;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+
+section .menuContainer .container .labCollection .labCard .cardText h1 {
+  font-size: 24px;
+  color: #fff;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+section .menuContainer .container .labCollection .labCard .cardText p {
+  color: #fff;
+  line-height: 34px;
+  position: relative;
+  z-index: 10;
+}
+
+section .menuContainer .container .labCollection .labCard .cardText .labBtn {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+  color: #2EA9DF;
+  background-color: transparent;
+  position: absolute;
+  right: 25px;
+  bottom: 20px;
+  font-size: 20px;
+  border: 1px solid #2EA9DF;
+  border-radius: 5px;
+  padding: 3px 20px;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  z-index: 10;
+}
+
+section .menuContainer .container .labCollection .labCard .cardText .labBtn span {
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+section .menuContainer .container .labCollection .labCard .cardText .labBtn span::after {
+  margin: 0px 8.5px;
+  content: "TRY ME";
+  display: inline-block;
+}
+
+section .menuContainer .container .labCollection .labCard .cardText .labBtn:hover {
+  background-color: #2EA9DF;
+  color: #fff;
+}
+
+section .menuContainer .container .labCollection .labCard .cardText .labBtn:hover span::after {
+  margin: 0;
+  content: "Have Fun";
+}
+
+@-webkit-keyframes cardFloat {
+  50% {
+    top: 10px;
+  }
+}
+
+@keyframes cardFloat {
+  50% {
+    top: 10px;
+  }
+}
+/*# sourceMappingURL=menu.css.map */

@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+$colorRed: #ff5353;
+$colorYellow: #ffc429;
+$colorBlue: #5980c1;
+$colorWhite: #fbe9b7;
+$colorGreen: #20750f;
+$colorGray: #878787;
+$colorBabyRed: #ff7d59;
+$colorBabyBlue: #00f2ff;
+$colorBabyGreen: #00ff3b;
+
+@mixin size($w,$h:$w) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin setBlockColor($color) {
+  box-shadow: 0px 0px 35px rgba($color,.1);
+  border: 1px solid lighten($color, 5);
+  &:hover {
+    background-color: rgba($color,.3);
+    box-shadow: 0px 0px 35px rgba($color,.3);
+  }
+  &:active, &.active {
+    box-shadow: 0px 0px 35px $color;
+    background-color: $color;
+  }
+}
+
+html, body {
+  background-color: #232526;
+  color: #fff;
+  box-sizing: border-box;
+  @include size(100%);
+  @include flexCenter;
+  font-family: 'Patrick Hand', cursive;
+  margin: 0;
+  padding: 0;
+  border: 5px solid rgba(#fff,.05);
+  transition: 0.5s;
+  flex-direction: column;
+  &:active {
+    transition: 0s;
+    border: 5px solid rgba(#fff,.1);
+  }
+}
+.infos {
+  position: absolute;
+  left: 65px;
+  top: 150px;
+  h1 {
+    text-transform: uppercase;
+    font-size: 45px;
+    margin-top: 0;
+    margin-bottom: 0;
+    letter-spacing: 2px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  h3 {
+    font-weight: 500;
+    color: $colorRed;
+  }
+  button.start {
+    padding: 5px 15px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-family: 'Patrick Hand', cursive;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: .5s;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(#fff, .3);
+    }
+  }
+}
+.blocks {
+  transition: .5s;
+  .row {
+    display: flex;
+    .inputStatus {
+      margin-top: 10px;
+      &.correct .circle{
+        background-color: $colorBlue;
+      }
+      &.wrong .circle{
+        background-color: $colorRed;
+      }
+      .circle {
+        @include size(6px);
+        background-color: #fff;
+        display: inline-block;
+        border-radius: 50%;
+        opacity: .3;
+        margin: 5px;
+        &.correct {
+          opacity: 1;
+        }
+      }
+    }
+    .block {
+      @include size(100px);
+      @include flexCenter;
+      border: 1px solid #fff;
+      cursor: pointer;
+      transition: 0.5s 0.1s;
+      margin: 12px;
+      &:active, &.active {
+        transition: 0s;
+      }
+      &.block1 {
+        @include setBlockColor($colorRed);
+      }
+      &.block2 {
+        @include setBlockColor($colorYellow);
+      }
+      &.block3 {
+        @include setBlockColor($colorBlue);
+      }
+      &.block4 {
+        @include setBlockColor($colorGreen);
+      }
+      &.block5 {
+        @include setBlockColor($colorGray);
+      }
+      &.block6 {
+        @include setBlockColor($colorWhite);
+      }
+      &.block7 {
+        @include setBlockColor($colorBabyBlue);
+      }
+      &.block8 {
+        @include setBlockColor($colorBabyRed);
+      }
+      &.block9 {
+        @include setBlockColor($colorBabyGreen);
+      }
+    }      
+  }
+}
+.inputs {
+  display: flex;
+  margin-top: 20px;
+  .inputStatus {
+    margin-top: 10px;
+    &.correct .circle{
+      background-color: $colorBlue;
+    }
+    &.wrong .circle{
+      background-color: $colorRed;
+    }
+    .circle {
+      @include size(6px);
+      background-color: #fff;
+      display: inline-block;
+      border-radius: 50%;
+      opacity: .3;
+      margin: 5px;
+      &.correct {
+        opacity: 1;
+      }
+    }
+  }
+}

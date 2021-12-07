@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 共用檔案 -->
+    <% include shared/head %>
+    <link rel="stylesheet" href="../assets/stylesheets/comments.css">
+</head>
+
+<body>
+    <!-- 共用檔案 -->
+    <% include shared/navbar %>
+        <div id="ufoMove" class="ufoImg">
+            <img src="../assets/images/—Pngtree—cosmic ufo light effect alien_6860861.png" alt="">
+        </div>
+        <section>
+            <div class="msgContainer">
+                <div id="msgShow" class="msgShow">
+                    <div id="messageShow" class="container">
+                        <div class="row mt-2 px-2">
+                            <!-- 利用 EJS 模板 來加入 JS CODE -->
+                            <!-- forEach迴圈開頭 -->
+                            <% commentList.forEach(comment=>{ %>
+                                <div class="cardContainer col-4 py-3 px-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h6 id="msgName" class="card-title">
+                                                <i class="<%= comment.emoji %> <%= comment.mood %>"></i> <%= comment.name %> 
+                                            </h6>    
+                                            <hr>
+                                            <h6 class="favoriteLab mb-2">
+                                                最推薦： <span class="<%= comment.mood %>">- <%= comment.favorite %> -</span>
+                                            </h6>
+                                            <p class="card-text mb-2">
+                                                &emsp;&emsp;<%= comment.text %>
+                                            </p>
+                                            <h6 class="showTime">     
+                                                建立時間 <%= comment.createdDate %> <%= comment.createdTime %>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                    <div class="numMsg">
+                        <h6>只會顯示最新六筆留言喔！</h6>
+                    </div>
+                    <div class="msgBtn">
+                        <button id="toLeaveMsg"><span>- Leave Message -</span> 前往留言<i
+                                class="fas fa-space-shuttle"></i></button>
+                    </div>
+                </div>
+                <div id="msgLeave" class="msgLeave">
+                    <form id="sendComment" action="">
+                        <h1>留言區</h1>
+                        <p>Leave Your Message</p>
+                        <div>
+                            <input id="commentName" type="text" placeholder="您的稱呼 Your Name" required>
+                        </div>
+                        <div>
+                            <select name="" id="selectLab">
+                                <option value="" disabled required>喜歡的實驗 Your Favorite</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea placeholder="您的留言 Your Message [ 35字內 ]" name="" id="commentText" cols="20" rows="10" maxlength="35"
+                                required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                    <div class="bgiContainer">
+                        <h3><span>還</span><span>沒</span><span>決</span><span>定</span><span>好</span><span>要</span><span>留</span><span>什</span><span>麼</span><span>嗎</span><span>？</span>
+                        </h3>
+                        <button id="toShowMsg">回留言板</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    <!-- 共用檔案 -->
+    <% include shared/script %>
+        <script src="../assets/javascripts/comments.js"></script>
+</body>
+
+</html>

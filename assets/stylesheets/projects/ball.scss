@@ -1,0 +1,58 @@
+html, body {
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .game {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    border: 5px solid #fff;
+    .board {
+      background-color: #ffab2d;
+    }
+    .ball {
+      background-color: red;
+      border-radius: 50%;
+    }
+    .info {
+      color: #fff;
+      background-color: #222;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .infoText {
+        text-align: center;
+      }
+      .start {
+        padding: 8px 15px;
+        background-color: transparent;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 15px;
+        transition: .5s;
+        cursor: pointer;
+        &:hover {
+          background-color: rgba(#fff,.4);
+        }
+      }
+    }
+    .grade {
+      margin: 5px 5px;
+    }
+  }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 共用檔案 -->
+    <% include shared/head %>
+        <link rel="stylesheet" href="../assets/stylesheets/menu.css">
+</head>
+
+<body>
+    <!-- 共用檔案 -->
+    <% include shared/navbar %>
+        <section id="menuSection">
+            <div id="upperG" class="openGate"></div>
+            <div id="downG" class="openGate"></div>
+            <div class="menuContainer">
+                <div class="container">
+                    <div class="labCollection row">
+                        <div class="labCard col-4">
+                            <div class="cardText">
+                                <div class="deco"></div>
+                                <h1>The Timer</h1>
+                                <p>&emsp;&emsp;一個簡易的計時器．最高可以從999秒開始倒數，數字在倒數時會微微的跳動！時間到時也會有音效提醒！不要被嚇到囉！</p>
+                                <button id="timerLab" class="labBtn"><span></span></button>
+                            </div>
+                        </div>
+                        <div class="labCard col-4">
+                            <div class="cardText">
+                                <div class="deco"></div>
+                                <h1>The Particles</h1>
+                                <p>&emsp;&emsp;利用Canvas畫出的一個粒子空間，粒子會跟著滑鼠一起移動！右上方可以自己調整參數．雙擊滑鼠也可以產生力場喔！</p>
+                                <button id="particlesLab" class="labBtn"><span></span></button>
+                            </div>
+
+                        </div>
+                        <div class="labCard col-4">
+                            <div class="cardText">
+                                <div class="deco"></div>
+                                <h1>The Snake</h1>
+                                <p>&emsp;&emsp;這個貪吃蛇也是用Canvas繪製出來，並一直更新邏輯．貪吃蛇的食物會一次產生四個喔！但相對的越吃越多速度也會越快！</p>
+                                <button id="snakeLab" class="labBtn"><span></span></button>
+                            </div>
+                        </div>
+                        <div class="labCard col-4">
+                            <div class="cardText">
+                                <div class="deco"></div>
+                                <h1>The Blocks</h1>
+                                <p>&emsp;&emsp;記憶方塊．開始後記下亮起方塊的順序，並在音樂結束後點擊相同的順序．看似簡單，但每次音樂結束方塊都會換位置！</p>
+                                <button id="blockLab" class="labBtn"><span></span></button>
+                            </div>>
+                        </div>
+                        <div class="labCard col-4">
+                            <div class="cardText">
+                                <div class="deco"></div>
+                                <h1>The Ball</h1>
+                                <p>&emsp;&emsp;跟電腦來場擊球對打的小遊戲吧！利用方向鍵的左右來控制自己的板子來進行擊球，但擊球次數越多球也會越來越快！</p>
+                                <button id="ballLab" class="labBtn"><span></span></button>
+                            </div>>
+                        </div>
+                        <div class="labCard col-4">
+                            <div class="cardText">
+                                <div class="deco"></div>
+                                <h1>The Castle</h1>
+                                <p>&emsp;&emsp;參考迪士尼城堡繪製出來的一個小動畫，點擊後會切換早晚，並有煙火不斷的放出．整個程式都沒用到Javascript喔！</p>
+                                <button id="castleLab" class="labBtn"><span></span></button>
+                            </div>>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 共用檔案 -->
+        <% include shared/script %>
+            <script src="/assets/javascripts/menu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,845 @@
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@700&display=swap');
+
+// Variables Setting
+
+$colorBlueRoofLight: #6fc5ff;
+$colorBlueRoofDark: #0058ff;
+
+$colorGreyLight: #fafaf5;
+$colorGreyNormal: #e3e2cf;
+$colorGreyDark: #bebdaf;
+$colorBackground: #2C2F36;
+
+$colorShadowBlue: #7cb1ff;
+$colorShadowBlueLight: #8dc9fc;
+
+$colorWindowGrey: #534d4d;
+
+$roofGradient: linear-gradient(150deg,$colorBlueRoofLight,$colorBlueRoofDark);
+$sceneGradient: linear-gradient(#1D2B49,#1A45A0,#91cdff,#fff);
+
+// Mixin
+
+@mixin size($w,$h:$w,$bdrs:0) {
+  width: $w;
+  height: $h;
+  border-radius: $bdrs;
+} 
+
+@mixin flex($j:center,$a:center) {
+  display: flex;
+  justify-content: $j;
+  align-items: $a;
+}
+
+@mixin wall($flex:1,$color:#fff) {
+  flex: $flex;
+  background-color: $color;
+}
+
+// Build
+
+* {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  // border: 1px solid #000;
+  font-family:'Gemunu Libre', '微軟正黑體', sans-serif;
+}
+
+html, body {
+  background-color: #222;
+  @include size(100%);
+  @include flex;
+}
+
+label {
+  .remind {
+    color:rgba(#fff, 0.4);
+    letter-spacing:1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    margin-left: 15px;
+  }
+}
+
+.scene {
+  @include size(700px,500px, 20px);
+  background: $sceneGradient;
+  background-size: 100% 300%;
+  background-position: 0 100%;
+  overflow: hidden;
+  filter: brightness(105%);
+  .moon, .sun {
+    @include size(50px,50px,50%);
+    position: absolute;
+    left: 90px;
+    top: 70px;
+  }
+  .sun {
+    background-color: #ffdd38;
+    box-shadow:0px 0px 20px rgba(#ffdd38, 0.5);
+  }
+  .moon {
+    box-shadow: inset 10px -10px #fff;
+    top: 0;
+    left: 190px;
+    opacity: 0;
+  }
+  .fireWork {
+    position: absolute;
+    top:100px;
+    right:200px;
+    opacity: 0;
+    [class^="fire"] {
+      .ball {
+        @include size(3px,3px,50%);
+        background-color: #fff;
+        position: absolute;
+        animation: fire 3s cubic-bezier(0,.55,.54,.99) infinite;
+        animation-delay: -1s;
+      }
+    }
+    @for $i from 1 through 30 {
+      .fire#{$i} {
+        transform: rotate(#{$i*360 / 30}deg);
+        .ball {
+          @if ($i % 2 == 0) {
+            animation-delay: -2s;
+          }
+        }
+      }
+    }
+  }
+  .fireWork2 {
+    position: absolute;
+    top:300px;
+    right:100px;
+    opacity: 0;
+    [class^="fire"] {
+      .ball {
+        @include size(3px,3px,50%);
+        background-color: #fff;
+        position: absolute;
+        animation: fire 4s cubic-bezier(0,.55,.54,.99) infinite;
+      }
+    }
+    @for $i from 1 through 30 {
+      .fire#{$i} {
+        transform: rotate(#{$i*360 / -30}deg);
+      }
+      @if ($i % 3 == 0) {
+        .fire#{$i} {
+          transform: rotate(#{$i*360 / 30}deg);
+          .ball {
+            animation-delay: -$i*0.05s;
+          }
+        }
+      }
+      @if ($i % 3 == 1) {
+        .fire#{$i} {
+          .ball {
+            animation-delay: -$i*0.05s;
+          }
+        }
+      }
+      @if ($i % 3 == 2) {
+        .fire#{$i} {
+          .ball {
+            animation-delay: -2s;
+          }
+        }
+      }
+    }
+  }
+  .fireWork3 {
+    position: absolute;
+    top:190px;
+    left:160px;
+    opacity: 0;
+    [class^="fire"] {
+      .ball {
+        @include size(2px,2px,50%);
+        background-color: #fff;
+        position: absolute;
+        animation: fireSmall 5s cubic-bezier(0,.55,.54,.99) infinite;
+        animation-delay: -1s;
+      }
+    } 
+    @for $i from 1 through 30 {
+      .fire#{$i} {
+        transform: rotate(#{$i*360 / 30}deg);
+        .ball {
+          animation-delay: -2s;
+          @if ($i % 2 == 0) {
+            animation-delay: -1.5s;
+          }
+        }
+      }
+    }
+  }
+  .fireWork4 {
+    @extend .fireWork3;
+    top:240px;
+    left:70px;
+    @for $i from 1 through 30 {
+      .fire#{$i} {
+        .ball {
+          animation-delay: -2s;
+          @if ($i % 2 == 0) {
+            animation-delay: -1.5s;
+          }
+        }
+      }
+    }
+  }
+  .fireWork5 {
+    @extend .fireWork3;
+    top:260px;
+    left:140px;
+    @for $i from 1 through 30 {
+      .fire#{$i} {
+        .ball {
+          animation-delay: -3s;
+          @if ($i % 2 == 0) {
+            animation-delay: -1s;
+          }
+        }
+      }
+    }
+  }
+  [class^="clouds"] {
+    animation: move 5s infinite alternate;
+  }
+  .clouds {
+    position: absolute;
+    top: 120px;
+    right: 80px;
+    animation-delay: -4s;
+    .cloudInner {
+      @include size(65px,45px, 22px);
+      background-color: #fff;
+      box-shadow: inset -1px -3px rgba(#000,.2), 5px 5px 10px rgba(#000, 0.1);
+      z-index: 2;
+      &:nth-child(1) {
+        margin-bottom: -15px;
+        transform: translateX(-20px);
+        z-index: 0;
+      }
+      &:nth-child(3) {
+        margin-top:-43px;
+        transform: translateX(-38px);
+        z-index: 1;
+      }
+    }
+  }
+  .clouds1 {
+    @extend .clouds;
+    right: 250px;
+    top: 60px;
+    animation-delay: -1s;
+    transform: scaleX(-1);
+  }
+  .clouds2 {
+    @extend .clouds;
+    right: 400px;
+    top: 90px;
+    animation-delay: -3s;
+    transform: scaleX(1);
+  }
+  .clouds3 {
+    @extend .clouds;
+    right: 570px;
+    top: 170px;
+    animation-delay: -1s;
+    transform: scaleX(-1);
+  }
+  .elf {
+    display: none;
+    position: absolute;
+    border: 3px solid rgb(255,252,209);
+    @include size(600px, 500px, 50%);
+    bottom: -50%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8,1.6);
+    animation: drawing 10s 1.7s infinite both ease-out;
+    
+  }
+  .building {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    [class^="castle"] {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .castle1 {
+      bottom: 0;
+      @include size(250px,70px);
+      z-index: 1;
+      .left {
+        @include size(30px,120px);
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        flex-wrap:wrap;
+        box-shadow: 0px 0px 10px rgba(#000,0.1);
+        &::before {
+          content:"";
+          display: block;
+          @include size(35px,10px);
+          position: absolute;
+          left:50%;
+          transform: translateX(-50%);
+          background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+          z-index: 10;
+          box-shadow: 0px 0px 10px rgba(#000,0.1);
+        }
+        &::after {
+          content:"";
+          display: block;
+          @include size(35px,10px);
+          position: absolute;
+          left:50%;
+          top:40%;
+          transform: translateX(-50%); 
+          background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+          box-shadow: 0px 0px 10px rgba(#000,0.1);
+        }
+        .wall {
+          flex:1;
+          &:nth-child(1) {
+            @include wall(10,$colorGreyDark);
+          }
+          &:nth-child(2) {
+            @include wall(14,$colorGreyNormal);
+          }
+          &:nth-child(3) {
+            @include wall(10,$colorGreyLight);
+          }
+          .window {
+            @include size(3px,8px, 50% 50% 0 0);
+            background-color: $colorWindowGrey;
+            margin-top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+        .roof {
+          position: absolute;
+          @include size(30px,60px);
+          transform: translateY(-60px);
+          left: 0;
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          background: $roofGradient;
+        }
+      }
+      .mid {
+        @include size(80px,90px);
+        position: absolute;
+        bottom: 0;
+        left: 55px;
+        background-color: $colorGreyNormal;
+        display: flex;
+        justify-content: space-around;
+        box-shadow: 0px 0px 10px rgba(#000,0.1);
+        .window {
+          @include size(5px,10px,50% 50% 0 0);
+          margin-top:13px;
+          background-color: $colorWindowGrey;
+          &:nth-child(1) {
+            transform: translateX(5px);
+          }
+          &:nth-child(3) {
+            transform: translateX(-5px);
+          }
+        }
+        .roof {
+          position: absolute;
+          @include size(80px,70px);
+          clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+          left: 0;
+          top:-70px;
+          background: $roofGradient;
+        }
+        .door {
+          @include size(40px,50px,25px 25px 0 0);
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: $colorBackground;
+          box-shadow: inset -2px 2px $colorBlueRoofDark;
+        }
+        [class^="wall"] {
+          @include size(10px,100%);
+          position: absolute;
+          background-color: $colorGreyLight;
+        }
+        .wall1 {
+          left:0;
+        }
+        .wall2 {
+          right:0;
+        }
+      }
+      .right {
+        @include size(30px,120px);
+        position: absolute;
+        bottom: 0;
+        left: 160px;
+        display: flex;
+        box-shadow: 0px 0px 10px rgba(#000,0.1);
+        .wall {
+          flex:1;
+          &:nth-child(1) {
+            @include wall(10,$colorGreyDark);
+          }
+          &:nth-child(2) {
+            @include wall(14,$colorGreyNormal);
+          }
+          &:nth-child(3) {
+            @include wall(10,$colorGreyLight);
+          }
+          .window {
+            @include size(3px,8px, 50% 50% 0 0);
+            background-color: $colorWindowGrey;
+            margin-top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+        .roof {
+          position: absolute;
+          @include size(30px,60px);
+          transform: translateY(-60px);
+          left: 0;
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          background: $roofGradient;
+        }
+        &::before {
+          content:"";
+          display: block;
+          @include size(35px,10px);
+          position: absolute;
+          left:50%;
+          transform: translateX(-50%);
+          background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+          box-shadow: 0px 0px 10px rgba(#000,0.1);
+          z-index: 10;
+        }
+        &::after {
+          content:"";
+          display: block;
+          @include size(35px,10px);
+          position: absolute;
+          left:50%;
+          top:40%;
+          transform: translateX(-50%); 
+          background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+          box-shadow: 0px 0px 10px rgba(#000,0.1);
+        }
+      }
+      .rightSmall {
+        @include size(21px,100px);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        box-shadow: 0px 0px 10px rgba(#000,0.2);
+        .wall {
+          flex:1;
+          &:nth-child(1) {
+            @include wall(1,$colorGreyDark);
+          }
+          &:nth-child(2) {
+            @include wall(1,$colorGreyNormal);
+            .window {
+              @include size(3px,8px, 50% 50% 0 0);
+              background-color: $colorWindowGrey;
+              margin-top: 8px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+          &:nth-child(3) {
+            @include wall(1,$colorGreyLight);
+          }
+        }
+        .roof {
+          @include size(21px,55px);
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          background: $roofGradient;
+          position: absolute;
+          left: 0;
+          top:-55px;
+        }
+      }
+      .back {
+        @include size(130px,70px);
+        position: absolute;
+        bottom: 0;
+        left:30px;
+        background-color: $colorGreyNormal;
+        box-shadow: 0px 0px 10px rgba(#000,0.3);
+        .roof {
+          @include size(130px,15px);
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: $roofGradient;
+        }
+      }
+      .rightWall {
+        @include size(39px,75px);
+        clip-path: polygon(100% 100%, 0 100%, 0 0, 9% 0, 9% 8%, 19% 8%, 19% 0%, 32% 0, 32% 8%, 43% 8%, 43% 0, 56% 0, 56% 8%, 66% 8%, 66% 0, 78% 0%, 79% 8%, 89% 8%, 89% 0, 100% 0);
+        position: absolute;
+        bottom: 0;
+        right: 21px;
+        background: $colorGreyNormal;
+        z-index:-1;
+      }
+    }
+    .castle2 {
+      @include size(250px,50px);
+      position: absolute;
+      bottom: 70px;
+      .bottom {
+        @include size(140px,50px);
+        position: absolute;
+        left:25px;
+        bottom: 0;
+        background: $colorGreyDark;
+        border-top: 1px solid rgba(#000,.1);
+        clip-path: polygon(100% 100%, 0 100%, 0 0, 5% 0, 5% 10%, 10% 10%, 10% 0%, 15% 0, 15% 10%, 20% 10%, 20% 0, 25% 0, 25% 10%, 30% 10%, 30% 0, 35% 0%, 35% 10%, 40% 10%, 40% 0, 45% 0, 45% 10%, 50% 10%, 50% 0, 55% 0, 55% 10%, 60% 10%, 60% 0, 65% 0, 65% 10%, 70% 10%, 70% 0, 75% 0, 75% 10%, 80% 10%, 80% 0, 85% 0, 85% 10%, 90% 10%, 90% 0, 95% 0, 95% 10%, 100% 10%);
+      }
+      .rightBottom {
+        @include size(30px, 50px);
+        position: absolute;
+        right: 30px;
+        bottom: 0;
+        background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+        &::before {
+          content:"";
+          display: block;
+          @include size(35px,10px);
+          position: absolute;
+          top: -5px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+          box-shadow: 0px 0px 10px rgba(#000,0.1);
+        }
+        .window {
+          @include size(4px,10px, 50% 50% 0 0);
+          margin-top: 10px;
+          background-color: $colorWindowGrey;
+          position: absolute;
+          right: 5px;
+        }
+        .roof {
+          @include size(20px,60px);
+          position: absolute;
+          background: $roofGradient;
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          top: -65px;
+          right: 0;
+        }
+      }
+      .topLeft {
+        @include size(80px,80px);
+        position: absolute;
+        bottom: 45px;
+        left: 50px;
+        display: flex;
+        justify-content: space-around;
+        background-color: $colorGreyNormal;
+        z-index: -2;
+        &::before {
+          content:"";
+          display: block;
+          position: absolute;
+          @include size(90px,5px);
+          top: 0;
+          right: 0;
+          background-color: $colorGreyNormal;
+          box-shadow: 0px 0px 10px rgba(#000,0.1);
+        }
+        &::after {
+          content:"";
+          display: block;
+          position: absolute;
+          @include size(85px,5px);
+          top: 5px;
+          right: 0;
+          background-color: $colorGreyDark;
+          z-index: -1;
+          box-shadow: 0px 0px 10px rgba(#000,0.1);
+          
+        }
+        .window {
+          @include size(5px,10px,50% 50% 0 0);
+          margin-top: 18px;
+          background-color: $colorWindowGrey;
+        }
+        .roof {
+          @include size(60px,60px);
+          position: absolute;
+          top: -57px;
+          right: 5px;
+          clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+          background: $roofGradient;
+          z-index: -10;
+        }
+        .tower {
+          @include size(15px,50px);
+          position: absolute;
+          top: -50px;
+          left: 5px;
+          background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+          z-index: -100;
+          .towerRoof {
+            @include size(15px,60px);
+            position: absolute;
+            top: -60px;
+            left: 0;
+            background: $roofGradient;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          }
+        }
+      }
+      .topMid {
+        @include size(39px,100px);
+        position: absolute;
+        top:-95px;
+        left: 125px;
+        display: flex;
+        box-shadow: 0px 0px 10px rgba(#000,0.2);
+        z-index:-1;
+        &::before {
+          content:"";
+          display: block;
+          position: absolute;
+          @include size(44px,10px);
+          top: -5px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index:10;
+          background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+          box-shadow: 0px 0px 10px rgba(#000,0.1);
+        }
+        .wall {
+          flex:1;
+          .window {
+            @include size(4px,8px, 50% 50% 0 0);
+            background-color: $colorWindowGrey;
+            margin-top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+          &:nth-child(1) {
+            @include wall(10,$colorGreyDark);
+            .window {
+              margin-top: 13px;
+            }
+          }
+          &:nth-child(2) {
+            @include wall(14,$colorGreyNormal);
+          }
+          &:nth-child(3) {
+            @include wall(10,$colorGreyLight);
+            .window {
+              margin-top: 13px;
+            }
+          }
+        }
+        .tower {
+          position: absolute;
+          @include size(25px,90px);
+          top:-90px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+          box-shadow: 0px 0px 10px rgba(#000,0.1);
+          &::before {
+            content:"";
+            display: block;
+            position: absolute;
+            @include size(35px,5px);
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+            box-shadow: 0px 0px 10px rgba(#000,0.2);
+            z-index: 10;
+          }
+          &::after {
+            content:"";
+            display: block;
+            position: absolute;
+            @include size(30px,5px);
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+            box-shadow: 0px 0px 10px rgba(#000,0.2);
+          }
+          .window {
+            @include size(4px,8px, 50% 50% 0 0);
+            position: absolute;
+            background-color: $colorWindowGrey;
+            margin-top: 12px;
+            left: 75%;
+            transform: translateX(-50%);
+          }
+          .towerRoof {
+            @include size(25px,60px);
+            top: -65px;
+            left: 0;
+            background: $roofGradient;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          }
+        }
+      }
+      .topRight {
+        @include size(35px,70px);
+        position: absolute;
+        top: -70px;
+        left: 160px;
+        background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+        z-index: -10;
+        .smallTower {
+          @include size(18px,30px);
+          position: absolute;
+          top: -15px;
+          left: 22px;
+          background: linear-gradient(90deg, rgba(190,189,175,1) 0%, rgba(227,226,207,1) 50%, rgba(250,250,245,1) 100%);
+          box-shadow: 0px 0px 10px rgba(#000,0.1);
+          .window {
+            @include size(3px,8px, 50% 50% 0 0);
+            background-color: $colorWindowGrey;
+            margin-top: 5px;
+            left: 75%;
+            transform: translateX(-50%);
+          }
+          .towerRoof {
+            @include size(18px, 30px);
+            position: absolute;
+            top: -30px;
+            background: $roofGradient;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes drawing {
+  0% {
+    clip-path: polygon(100% 0, 100% 0, 100% 50%, 100% 50%);
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    opacity:1;
+  }
+  80% {
+    opacity:0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fire {
+  0% {
+    transform: translateX(-5px);
+    background-color: #faff00;
+  }
+  60% {
+    opacity:1;
+  }
+  80% {
+    transform: translateX(70px);
+    background-color: #ff5151;
+    opacity:0;
+  }
+  100% {
+    ransform: translateX(70px);
+    background-color: #ff5151;
+    opacity:0;
+  }
+}
+
+@keyframes fireSmall {
+  0% {
+    transform: translateX(-5px);
+    background-color: #ff5151;
+  }
+  60% {
+    opacity:1;
+  }
+  80% {
+    transform: translateX(40px);
+    background-color: #faff00;
+    opacity:0;
+  }
+  100% {
+    ransform: translateX(40px);
+    background-color: #ff5151;
+    opacity:0;
+  }
+}
+
+[class^="fire"], [class^="cloud"], .sun, .moon, .elf , .scene, .building, .building .back{
+  transition: all 2s ease;
+}
+
+input:checked {
+  &+.scene {
+    background-position: 0 0;
+    [class^="clouds"] {
+      animation-play-state: paused;
+      top: 400px;
+      opacity:0;
+    }
+    .building {
+      filter: brightness(70%);
+      .back {
+        box-shadow:0 -20px 70px #faff00;
+        transition-delay: 1.5s;
+      }
+    }
+    .elf {
+      display: block;
+    }
+    [class^="fire"] {
+      opacity:1;
+      transition-delay:1.5s;
+    }
+    .sun {
+      transform: translateY(300px) translateX(-100px);
+      opacity:0;
+    }
+    .moon {
+      opacity:1;
+      transform: translateY(70px) translateX(-100px);
+    }
+  }
+}
+
+input {
+  display: none;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}

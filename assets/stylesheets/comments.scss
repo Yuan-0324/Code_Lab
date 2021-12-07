@@ -1,0 +1,328 @@
+body {
+    background-color: #000;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+* {
+    box-sizing: border-box;
+}
+nav {
+    .navText {
+        span {
+            &:nth-child(3) {
+                color: #F75C2F;
+                pointer-events: none;
+            }
+        }
+    }
+}
+.ufoImg {
+    position: absolute;
+    z-index: 500;
+    left: 50%;
+    top: 0%;
+    transition: all .5s ease;
+    transform: translate(-50% , -50%);
+    clip-path: polygon(0 0, 100% 0, 100% 17%, 0 17%); 
+    img {
+        width: 250px;  
+    }
+}
+section {
+    position: relative;
+    background-image: url('../images/pexels-jakub-novacek-924824.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    .msgContainer {
+        width: 80%;
+        height: 570px;
+        position: relative;
+        top: 2%;
+        max-width: 900px;
+        min-width: 750px;
+        .msgShow {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 15px;
+            transition: all .5s ease;
+            z-index: 10;
+            top: 0;
+            right:0;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid #F75C2F;
+            transform: scale(1);
+            overflow: hidden;
+            .numMsg {
+                position: absolute;
+                bottom: 30px;
+                left: 30px;
+                h6 {
+                    color: #fff;
+                    opacity: 0.7;
+                    letter-spacing: 2px;
+                }
+            }
+            #messageShow {
+                height: 100%;
+                width: 100%;
+                .row {
+                    height: 83%;
+                    .cardContainer {
+                        height: 200px;
+                        color: #fff;   
+                        .card {
+                            height: 210px;
+                            border: 1px solid #2EA9DF;
+                            border-radius: 15px;
+                            background-color: #000;
+                            hr {
+                                border-color: #fff;
+                                margin: 12px 0px;
+                            }
+                            #msgName {
+                                margin-bottom: 0;
+                                white-space: nowrap; 
+                                i {
+                                    font-size: 20px;
+                                    margin-right: 4px;
+                                    &.colorRed {
+                                        color: #F75C2F;
+                                    }
+                                    &.colorBlue {
+                                        color: #2EA9DF;
+                                    }
+                                }
+                            }
+                            .favoriteLab {
+                                font-size: 14px;
+                                span {
+                                    &.colorRed {
+                                        color: #F75C2F;
+                                    }
+                                    &.colorBlue {
+                                        color: #2EA9DF;
+                                    }
+                                }
+                            }
+                            .card-text {
+                                height: 75px;
+                                font-size: 14px;
+                            }
+                            .showTime {
+                                opacity: 0.7;
+                                font-size: 10px;
+                                letter-spacing: 1px;
+                            }
+                        }
+                    }
+                }
+            }
+            .msgBtn {
+                position: absolute;
+                bottom: 25px;
+                right: 50px;
+                button {
+                    border: 1px solid #fff;
+                    padding: 5px 15px;
+                    background-color: transparent;
+                    color: #fff;
+                    font-size: 20px;
+                    letter-spacing: 2px;
+                    transition: all .4s ease-in-out;
+                    border-radius: 10px;
+                    span {
+                        text-transform: uppercase;
+                        font-family: 'Bebas Neue', cursive;
+                    }
+                    i {
+                        position: relative;
+                        transition: transform 1.2s .2s ease-in-out;
+                        margin-left: 7px;
+                        left:0;
+                        transform: rotate(0deg) translate(0px,0px);           
+                    }
+                    &:hover {
+                        border-color: #F75C2F;
+                        background-color: #F75C2F;
+                        i {
+                            transform: rotate(-90deg) translate(120px,120px);
+                        }
+                    }
+  
+                }
+            }
+        }
+        .msgLeave {
+            transition: all .5s ease;
+            border-radius: 15px;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 0;
+            bottom: 0;
+            right: -100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid #2EA9DF;
+            transform: scale(0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            form {
+                height: 100%;
+                width: 50%;
+                padding: 4% 5%;
+                h1, p {
+                    color: #2EA9DF;
+                    text-align: center;
+                    letter-spacing: 2px;
+                }
+                p {
+                    margin-top: 15px;
+                    font-family: 'Bebas Neue', cursive;
+                    margin-bottom: 5px;
+                }
+                div {
+                    margin: 30px 10%;
+                    *{
+                        width: 100%;
+                        border-radius: 5px;
+                    }
+                    select {
+                        padding: 3px 0px 3px 8px;
+                        
+                    }
+                    input {
+                        padding: 2px 0px 2px 10px;
+                    }
+                    textarea {
+                        padding-top: 5px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        height: 150px;
+                    }
+                    button {
+                        font-family: 'Bebas Neue', cursive;
+                        letter-spacing: 2px;
+                        margin: 0 25%;
+                        width: 50%;
+                        color:#2EA9DF;
+                        padding: 5px 0;
+                        border-radius: 5px;
+                        background-color: transparent;
+                        border: 1px solid #2EA9DF;
+                    }
+                }
+    
+            }
+            .bgiContainer {
+                border-left: 1px solid #2EA9DF;
+                height: 100%;
+                width:50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background-image: url("../images/constellations-1851128.jpg");
+                background-position: center;
+                background-size: cover;
+                h3 {
+                    color: #2EA9DF;
+                    margin-bottom: 40px ;
+                    letter-spacing: 2px;
+                    span {
+                        position: relative;
+                        animation: wordFloat 1.5s linear alternate infinite;
+                        top: 0;
+                        @for $i from 1 through 11 {
+                            &:nth-child(#{$i}) {
+                                animation-delay: $i*0.1s;
+                            }
+                        }
+                    }
+                }
+                button {
+                    padding: 8px 18px;
+                    background-color: transparent;
+                    color: #fff;
+                    border: 1px solid #fff;
+                    border-radius: 5px;
+                    transition: all .5s ease;
+                    letter-spacing: 2px;
+                    &:hover {
+                        border: 1px solid #2EA9DF;
+                        color: #2EA9DF;
+                        background-color: #000;
+                    }
+                }
+            } 
+        }
+    }
+}
+@keyframes flyDown {
+    40% {
+        top: 50%;
+        clip-path: polygon(0 0, 100% 0, 100% 18%, 0 18%);
+    }
+    50% {
+        top: 50%;
+        clip-path: polygon(0 0, 100% 0, 100% 92%, 0 92%);
+    }
+    70% {
+        top: 50%;
+        clip-path: polygon(0 0, 100% 0, 100% 92%, 0 92%);
+    }
+    80% {
+        top: 50%;
+        clip-path: polygon(0 0, 100% 0, 100% 18%, 0 18%);
+    }
+    100% {
+        top: 0;
+        clip-path: polygon(0 0, 100% 0, 100% 18%, 0 18%);
+    }
+}
+
+
+@keyframes wordFloat {
+    50% {
+        top:-5px;
+    }
+}
+@keyframes flyOut{
+    0% {
+        transform: scale(1);
+        right:0;
+    }
+    80% {
+        transform: scale(0);
+        right:0;
+    }
+    100% {
+        right: -100%;
+        transform: scale(0);
+    }
+}
+@keyframes fadeIn{
+    0% {
+        right: -100%;
+        transform: scale(0);
+    }
+    10% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+        right:0;
+    }
+}

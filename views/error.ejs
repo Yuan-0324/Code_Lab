@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url('../assets/images/earth.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #000;
+            opacity: 0.8;
+            width: 600px;
+            height: 350px;
+            border-radius: 20px;
+            border: 1px solid #F75C2F;
+        }
+
+        #earth {
+            padding: 5px 15px;
+            border-radius: 5px;
+            background-color: transparent;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            letter-spacing: 3px;
+            transition: all .5s ease;
+            border: 1.5px solid #F75C2F;
+        }
+
+        #earth:hover {
+            background-color: #F75C2F;
+            border-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1 style="color: #fff; letter-spacing: 3px ;font-size: 24px; margin: 0;">
+            <%= message %>
+        </h1>
+        <h1 style="color: #F75C2F; font-size: 72px; letter-spacing: 5px; margin: 40px 0px;">
+            <%= error.status %> ERROR !
+        </h1>
+        <!-- <pre style="color: #fff;">
+            <%= error.stack %>
+        </pre> -->
+        <button id="earth" onclick="earth()">重新啟航</button>
+    </section>
+    <script>
+        function earth() {
+            window.location.href = "/"
+        }
+    </script>
+</body>
+
+</html>
