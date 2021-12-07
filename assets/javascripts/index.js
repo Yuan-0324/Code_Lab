@@ -6,12 +6,15 @@ const enteryBtn = document.getElementById("enteryBtn"),
     upperGate = document.getElementById("upperGate"),
     downGate = document.getElementById("downGate");
 
-(function () {
-    setTimeout(() => {
-        upperGate.style.top = "-50.5vh";
-        downGate.style.bottom = "-50.5vh";
-    }, 600)
-})()
+window.addEventListener("load", () => {
+    (function () {
+        setTimeout(() => {
+            upperGate.style.top = "-50.5vh";
+            downGate.style.bottom = "-50.5vh";
+        }, 600)
+    })()
+})
+
 
 enteryBtn.addEventListener("click", () => {
     enteryHead.classList.add("shrink");
