@@ -9,12 +9,14 @@ const upperG = document.getElementById("upperG"),
 
 // IIFE 練習
 // 進場的開門
-(function () {
-    setTimeout(() => {
-        upperG.style.top = "-50vh";
-        downG.style.bottom = "-50vh";
-    }, 500);
-})();
+window.addEventListener("load", () => {
+    (function () {
+        setTimeout(() => {
+            upperG.style.top = "-50vh";
+            downG.style.bottom = "-50vh";
+        }, 500);
+    })();
+})
 
 timerLab.addEventListener("click", () => {
     leftGate.style.left = "0%";

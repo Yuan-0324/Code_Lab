@@ -9,6 +9,22 @@ const homePage = document.getElementById("homePage"),
     labGateL = document.getElementById("labGateL"),
     labGateR = document.getElementById("labGateR");
 
+// 開關門
+window.addEventListener("load", () => {
+    if (leftGate && rightGate) {
+        // 也可以不用 IIFE
+        (function () {
+            setTimeout(() => {
+                leftGate.style.left = "-62%";
+                rightGate.style.right = "-62%";
+            }, 500)
+            setTimeout(() => {
+                navBar.style.top = "0px";
+            }, 1100);
+        })()
+    }
+})
+
 let navBtn = [homePage, labPage, commentsPage, contactPage];
 
 // 因為是共用檔案 所以加入 if 來防止錯誤產生
@@ -38,21 +54,6 @@ if (homePage && labPage && commentsPage && contactPage) {
             }
         });
     });
-}
-
-// 開關門
-
-if (leftGate && rightGate) {
-    // 也可以不用 IIFE
-    (function () {
-        setTimeout(() => {
-            leftGate.style.left = "-62%";
-            rightGate.style.right = "-62%";
-        }, 500)
-        setTimeout(() => {
-            navBar.style.top = "0px";
-        }, 1100);
-    })()
 }
 
 if (labGateL && labGateR) {
