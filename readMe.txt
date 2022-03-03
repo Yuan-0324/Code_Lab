@@ -1,3 +1,21 @@
-這是我的專案資料夾
+這是我的小專案資料
 
-簡單的SSR專案
+這是一個帶有科技感的作品小集網頁。
+裡面有我之前上課學的及我自己嘗試做出來的小作品，
+並加入了留言板功能，串接Firebase做存取。
+
+簡單的 SSR 小專案
+
+前端使用：
+SCSS
+HTML
+Javascript
+
+後端使用：
+NodeJS 開發環境
+Express 框架
+EJS 模板
+Firebase 資料庫
+
+Herokuapp 網址：
+https://coding-lab-yuan.herokuapp.com/
